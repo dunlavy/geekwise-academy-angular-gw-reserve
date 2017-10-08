@@ -1,11 +1,3 @@
-span, p {
-	font-size: 18px;
-}
-
-.ui.grid {
-	height: 100vh;
-}
-
 @media screen and (max-width: 760px) {
 	i {
 		display: none;
