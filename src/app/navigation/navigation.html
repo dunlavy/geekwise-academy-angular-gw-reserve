@@ -1,0 +1,19 @@
+<div class="ui container">
+	<div class="ui secondary pointing huge stackable menu navigation">
+
+		<a *ngFor="let navItem of navigationItems"
+			[routerLink]="navItem.url"
+			routerLinkActive="active"
+			[routerLinkActiveOptions]="{ exact: true }"
+			class="item">
+			{{ navItem.title }}
+		</a>
+
+		<div class="right menu">
+			<div class="item">
+				<!-- <gw-login></gw-login> -->
+			</div>
+		</div>
+
+	</div>
+</div>
