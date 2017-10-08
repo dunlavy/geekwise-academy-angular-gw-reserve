@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import FourOhFourComponent from "./components/404-component/404-component";
-import RoomComponent from "./components/room/room";
+import FourOhFourComponent from "./components/404/404.component";
+import RoomComponent from "./components/room/room.component";
 
 const routes:Routes = [
 	{
