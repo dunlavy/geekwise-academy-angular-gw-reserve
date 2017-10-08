@@ -5,6 +5,7 @@ import { AppRoutingModule, routedComponents } from "./app.routing.module";
 
 import AppComponent from "./app.component";
 import NavigationComponent from "./components/navigation/navigation.component";
+import LoginComponent from "./components/login/login.component";
 
 @NgModule({
 	imports: [
@@ -17,6 +18,7 @@ import NavigationComponent from "./components/navigation/navigation.component";
 	declarations: [
 		AppComponent,
 		NavigationComponent,
+		LoginComponent,
 		routedComponents
 	]
 })
