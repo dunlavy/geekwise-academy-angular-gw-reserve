@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import FourOhFourComponent from "./404-component/404-component";
+import RoomComponent from "./room/room";
 
 const routes:Routes = [
 	{
@@ -14,7 +15,7 @@ const routes:Routes = [
 	},
 	{
 		path: "rooms/:id",
-		component: FourOhFourComponent
+		component: RoomComponent
 	},
 	{
 		path: "**",
@@ -33,5 +34,5 @@ const routes:Routes = [
 export class AppRoutingModule { }
 
 export const routedComponents = [
-	FourOhFourComponent
+	FourOhFourComponent, RoomComponent
 ];
