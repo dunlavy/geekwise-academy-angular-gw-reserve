@@ -1,3 +1,15 @@
+span, p {
+	font-size: 18px;
+}
+
 .emphasis {
 	color: #4E99A1;
+}
+
+.ui.grid {
+	height: 100%;
+}
+
+.root .fill-page {
+	height: calc(100vh - 130px);
 }
