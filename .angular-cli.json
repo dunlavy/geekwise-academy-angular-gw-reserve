@@ -19,9 +19,12 @@
 			"testTsconfig": "tsconfig.spec.json",
 			"prefix": "gw",
 			"styles": [
+				"../semantic/dist/semantic.min.css",
 				"styles.css"
 			],
-			"scripts": [],
+			"scripts": [
+				"../semantic/dist/semantic.min.js"
+			],
 			"environmentSource": "environments/environment.ts",
 			"environments": {
 				"dev": "environments/environment.ts",
