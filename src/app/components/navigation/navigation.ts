@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { INavigationItem } from "./../interfaces/INavigationItem";
+import { INavigationItem } from "./../../interfaces/INavigationItem";
 
 @Component({
 	selector: "gw-navigation",
