@@ -4,7 +4,10 @@ import { INavigationItem } from "./../../interfaces/INavigationItem";
 
 @Component({
 	selector: "gw-navigation",
-	templateUrl: "./navigation.component.html"
+	templateUrl: "./navigation.component.html",
+	styleUrls: [
+		"./navigation.component.css"
+	]
 })
 export default class NavigationComponent implements OnInit {
 	public navigationItems:INavigationItem[];

@@ -1,0 +1,13 @@
+.navigation {
+	height: 114px;
+}
+
+@media screen and (max-width: 760px) {
+	.ui.secondary.pointing.menu .active.item {
+		border: none;
+	}
+
+	.navigation {
+		height: auto;
+	}
+};
