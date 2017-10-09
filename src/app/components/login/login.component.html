@@ -1,10 +1,10 @@
 <div>
-	<div class="logged-in-panel">
-		Welcome, User Name
+	<div *ngIf="loggedInUser">
+		<div>Welcome, {{ loggedInUser.name }}</div>
+		<div class="ui divider"></div>
 	</div>
-	<div class="ui divider"></div>
 	<div class="ui basic buttons">
-		<button class="ui green basic button">LOGIN</button>
-		<button class="ui orange basic button">LOGOUT</button>
+		<button (click)="login()" class="ui green basic button">LOGIN</button>
+		<button (click)="logout()" class="ui orange basic button">LOGOUT</button>
 	</div>
 </div>
