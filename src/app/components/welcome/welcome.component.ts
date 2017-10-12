@@ -12,7 +12,11 @@ export default class WelcomeComponent implements OnInit {
 	constructor(private _activatedRoute:ActivatedRoute) { }
 
 	ngOnInit() {
-		this.isShowingLoginWarning = this._activatedRoute.snapshot.fragment === 'show-warning';
+		this._activatedRoute.fragment.subscribe({
+			next : fragment => {
+				this.isShowingLoginWarning = fragment;
+			}
+		});
 	}
 
 	closeWarnings() {
