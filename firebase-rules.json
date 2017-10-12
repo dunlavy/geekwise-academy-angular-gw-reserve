@@ -1,0 +1,15 @@
+{
+	"rules": {
+		"rooms": {
+			"$room": {
+				"reservations": {
+					".write": true
+				}
+			},
+			".read": true,
+			".write": false
+		},
+		".read": false,
+		".write": false
+	}
+}
