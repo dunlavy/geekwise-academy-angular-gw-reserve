@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
 	selector: "gw-welcome",
@@ -6,5 +7,11 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: [ "./welcome.component.css" ]
 })
 export default class WelcomeComponent implements OnInit {
-	ngOnInit() { }
+	public isShowingLoginWarning;
+
+	constructor(private _activatedRoute:ActivatedRoute) { }
+
+	ngOnInit() {
+		this.isShowingLoginWarning = this._activatedRoute.snapshot.fragment === 'show-warning';
+	}
 }
