@@ -14,4 +14,8 @@ export default class WelcomeComponent implements OnInit {
 	ngOnInit() {
 		this.isShowingLoginWarning = this._activatedRoute.snapshot.fragment === 'show-warning';
 	}
+
+	closeWarnings() {
+		this.isShowingLoginWarning = false;
+	}
 }
