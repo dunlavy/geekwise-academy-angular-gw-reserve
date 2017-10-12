@@ -6,6 +6,7 @@ import FourOhFourComponent from "./components/404/404.component";
 import RoomComponent from "./components/room/room.component";
 
 import { LoginGuardService } from "./services/login-guard.service";
+import { CanDeactivateGuardService } from "./services/deactivate-guard.service";
 
 const routes:Routes = [
 	{
@@ -21,6 +22,9 @@ const routes:Routes = [
 		component: RoomComponent,
 		canActivate: [
 			LoginGuardService
+		],
+		canDeactivate: [
+			CanDeactivateGuardService
 		]
 	},
 	{
@@ -37,7 +41,8 @@ const routes:Routes = [
 		RouterModule
 	],
 	providers: [
-		LoginGuardService
+		LoginGuardService,
+		CanDeactivateGuardService
 	]
 })
 export class AppRoutingModule { }
