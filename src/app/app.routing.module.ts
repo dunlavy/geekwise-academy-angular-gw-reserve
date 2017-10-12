@@ -5,6 +5,8 @@ import WelcomeComponent from "./components/welcome/welcome.component";
 import FourOhFourComponent from "./components/404/404.component";
 import RoomComponent from "./components/room/room.component";
 
+import { LoginGuardService } from "./services/login-guard.service";
+
 const routes:Routes = [
 	{
 		path: "",
@@ -16,7 +18,10 @@ const routes:Routes = [
 	},
 	{
 		path: "rooms/:id",
-		component: RoomComponent
+		component: RoomComponent,
+		canActivate: [
+			LoginGuardService
+		]
 	},
 	{
 		path: "**",
@@ -30,6 +35,9 @@ const routes:Routes = [
 	],
 	exports: [
 		RouterModule
+	],
+	providers: [
+		LoginGuardService
 	]
 })
 export class AppRoutingModule { }
