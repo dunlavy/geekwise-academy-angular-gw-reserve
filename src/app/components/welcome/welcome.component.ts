@@ -1,14 +1,25 @@
 import { Component, OnInit } from "@angular/core";
-
-import { INavigationItem } from "./../../interfaces/INavigationItem";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
 	selector: "gw-welcome",
 	templateUrl: "./welcome.component.html",
-	styleUrls: [
-		"./welcome.component.css"
-	]
+	styleUrls: [ "./welcome.component.css" ]
 })
 export default class WelcomeComponent implements OnInit {
-	ngOnInit() { }
+	public isShowingLoginWarning;
+
+	constructor(private _activatedRoute:ActivatedRoute) { }
+
+	ngOnInit() {
+		this._activatedRoute.fragment.subscribe({
+			next : fragment => {
+				this.isShowingLoginWarning = fragment;
+			}
+		});
+	}
+
+	closeWarnings() {
+		this.isShowingLoginWarning = false;
+	}
 }

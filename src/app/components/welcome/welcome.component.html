@@ -15,6 +15,11 @@
 
 					<div class="ui section divider"></div>
 
+					<div *ngIf="isShowingLoginWarning" class="ui warning message">
+						<i class="close icon" (click)="closeWarnings()"></i>
+						Login required to navigate to rooms.
+					</div>
+
 					<div class="ui segement">Say more welcomey stuff here.  Soup and cookies.  Come on in.</div>
 				</div>
 			</div>
