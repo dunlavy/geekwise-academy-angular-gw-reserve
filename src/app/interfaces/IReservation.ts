@@ -1,4 +1,4 @@
-export default interface IReservation {
+export interface IReservation {
 	id?: string,
 	email: string,
 	reason: string,

@@ -1,6 +1,6 @@
-import IReservation from "./IReservation";
+import { IReservation } from "./IReservation";
 
-export default interface IRoom {
+export interface IRoom {
 	id:string;
 	name:string;
 	picture:string;
