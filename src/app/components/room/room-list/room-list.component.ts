@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 import { IReservation } from "./../../../interfaces/IReservation";
 
@@ -8,7 +8,6 @@ import { IReservation } from "./../../../interfaces/IReservation";
 	styleUrls: ["./room-list.component.css"]
 })
 export default class RoomListComponent implements OnInit {
-	@Input()
 	public roomId:string;
 
 	public reservations:IReservation[];
