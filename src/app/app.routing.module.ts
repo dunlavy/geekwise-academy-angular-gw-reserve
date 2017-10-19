@@ -23,12 +23,8 @@ const routes:Routes = [
 	{
 		path: "rooms/:id",
 		component: RoomComponent,
-		canActivate: [
-			LoginGuardService
-		],
-		canDeactivate: [
-			CanDeactivateGuardService
-		]
+		canActivate: [ LoginGuardService ],
+		canDeactivate: [ CanDeactivateGuardService ]
 	},
 	{
 		path: "**",
