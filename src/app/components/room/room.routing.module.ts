@@ -17,7 +17,8 @@ const routes: Routes = [
 		children: [
 			{
 				path: "form",
-				component: RoomFormComponent
+				component: RoomFormComponent,
+				canDeactivate: [CanDeactivateGuardService]
 			},
 			{
 				path: "list",
