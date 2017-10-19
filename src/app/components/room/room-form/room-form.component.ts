@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -10,7 +12,9 @@ export default class RoomFormComponent implements OnInit {
 	public roomId:string;
 	public reasons: string[];
 
-	ngOnInit() {
+	constructor(private _activatedRoute:ActivatedRoute) { }
+
+	public ngOnInit() {
 		this.reasons = [
 			"Séance",
 			"Scrum meeting",
@@ -19,11 +23,19 @@ export default class RoomFormComponent implements OnInit {
 			"Client meetup",
 			"Interview"
 		];
+
+		this._activatedRoute.parent.paramMap.subscribe(param => {
+			this._switchRoom(param.get("id"));
+		});
 	}
 
-	onSubmit(reservationValues) {
+	public onSubmit(reservationValues) {
 		const message = "Room reservation submitted!";
 		console.log(message, reservationValues);
 		alert(message);
+	}
+
+	private _switchRoom(id:string) {
+		this.roomId = id;
 	}
 }

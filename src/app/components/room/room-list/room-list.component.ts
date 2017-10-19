@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 import { IReservation } from "./../../../interfaces/IReservation";
 
@@ -12,7 +13,17 @@ export default class RoomListComponent implements OnInit {
 
 	public reservations:IReservation[];
 
+	constructor(private _activatedRoute:ActivatedRoute) { }
+
 	public ngOnInit() {
 		this.reservations = [];
+
+		this._activatedRoute.parent.paramMap.subscribe(param => {
+			this._switchRoom(param.get("id"));
+		});
+	}
+
+	private _switchRoom(id:string) {
+		this.roomId = id;
 	}
 }
