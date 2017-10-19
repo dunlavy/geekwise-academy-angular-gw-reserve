@@ -41,7 +41,10 @@
 		</div>
 		<div class="fields">
 			<div class="field">
-				<button type="submit" class="ui big positive submit button">Submit</button>
+				<button type="submit"
+				        class="ui big positive submit button"
+				        [ngClass]="{ negative: roomForm.invalid }"
+				        [disabled]="roomForm.invalid">Submit</button>
 			</div>
 		</div>
 	</form>
