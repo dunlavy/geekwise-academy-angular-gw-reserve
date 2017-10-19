@@ -13,3 +13,11 @@ span, p {
 .root .fill-page {
 	height: calc(100vh - 130px);
 }
+
+select.ng-dirty.ng-invalid, input.ng-dirty.ng-invalid {
+	background-color: pink !important;
+}
+
+select.ng-touched.ng-valid, input.ng-touched.ng-valid {
+	background-color: #e7fae7 !important;
+}
