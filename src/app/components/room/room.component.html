@@ -1,15 +1,16 @@
 <div class="ui room container">
-	<div class="ui inverted active dimmer" *ngIf="isLoading">
+	<div class="ui inverted active dimmer" *ngIf="nothing">
 		<div class="ui big loader"></div>
 	</div>
 	<div class="ui padded grid">
 		<div class="row">
 			<div class="six wide computer only column">
-				Let's test canDeactivate here:
-				<button class="ui large button" (click)="toggleCanUserLeave()">Can I Leave? &nbsp;&nbsp; {{ canUserLeave }}</button>
+				Room ID: {{ roomId }}
 			</div>
-			<div class="sixteen wide tablet ten wide computer column toggleButtons">
-				Menu here...
+			<div class="sixteen wide tablet ten wide computer column">
+				<div class="room-content">
+					<gw-room-form></gw-room-form>
+				</div>
 			</div>
 		</div>
 	</div>

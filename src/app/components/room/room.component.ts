@@ -1,24 +1,23 @@
-import { Component } from "@angular/core";
-import { ICanDeactivate } from "./../../services/deactivate-guard.service";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
 	selector: "gw-room",
-	templateUrl: "./room.component.html"
+	templateUrl: "./room.component.html",
+	styleUrls: ["./room.component.css"]
 })
-export default class RoomComponent implements ICanDeactivate {
-	public canUserLeave;
+export default class RoomComponent implements OnInit {
+	public roomId:string;
 
-	constructor() {
-		this.canUserLeave = true;
-	}
+	constructor(private _activatedRoute:ActivatedRoute) {	}
 
-	public canDeactivate() {
-		// the component does not fire this itself
-		console.log("Testing if user can leave...  " + this.canUserLeave);
-		return this.canUserLeave;
-	}
+	public ngOnInit() {
+		// my parent "room.component" is going to do all teh work getting room, so let's ensure
+		// this hard work doesn't go to waste in our child components by fetching the same
+		// information in them...
 
-	public toggleCanUserLeave() {
-		this.canUserLeave = !this.canUserLeave;
+		this._activatedRoute.paramMap.subscribe(route => {
+			this.roomId = route.get("id");
+		});
 	}
 }
