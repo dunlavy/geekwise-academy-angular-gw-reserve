@@ -10,6 +10,7 @@ import AppComponent from "./app.component";
 import NavigationComponent from "./components/navigation/navigation.component";
 import LoginComponent from "./components/login/login.component";
 import RoomFormComponent from "./components/room/room-form/room-form.component";
+import RoomListComponent from "./components/room/room-list/room-list.component";
 
 @NgModule({
 	imports: [
@@ -28,6 +29,7 @@ import RoomFormComponent from "./components/room/room-form/room-form.component";
 		NavigationComponent,
 		LoginComponent,
 		RoomFormComponent,
+		RoomListComponent,
 		routedComponents
 	]
 })
