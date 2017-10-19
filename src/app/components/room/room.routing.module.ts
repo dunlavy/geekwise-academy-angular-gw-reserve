@@ -12,6 +12,7 @@ const routes: Routes = [
 	{
 		path: "rooms/:id",
 		component: RoomComponent,
+		canActivate: [LoginGuardService],
 
 		children: [
 			{
