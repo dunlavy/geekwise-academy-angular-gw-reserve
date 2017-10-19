@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -7,6 +7,8 @@ import { NgForm } from "@angular/forms";
 	styleUrls: ["./room-form.component.css"]
 })
 export default class RoomFormComponent implements OnInit {
+	@Input()
+	public roomId:string;
 	public reasons: string[];
 
 	ngOnInit() {
