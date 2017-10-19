@@ -1,0 +1,48 @@
+<div>
+	<h1 class="ui header">
+		Make Reservation for Room of ID: &lt;room id here&gt;
+	</h1>
+
+	<form #roomForm="ngForm"
+	      class="ui large relaxed form"
+	      (ngSubmit)="onSubmit(roomForm.value)"
+	      novalidate>
+		<div class="two fields">
+			<div class="field">
+				<label>Reserve For:</label>
+				<select name="reserveReason" ngModel required>
+					<option *ngFor="let reason of reasons" [value]="reason">{{ reason }}<option>
+				</select>
+			</div>
+		</div>
+		<div class="two fields">
+			<div class="field">
+				<label>Start Time:</label>
+				<input name="startTime" type="time" ngModel required>
+			</div>
+			<div class="field">
+				<label>End Time:</label>
+				<input name="endTime" type="time" ngModel required>
+			</div>
+		</div>
+		<div class="two fields">
+			<div class="field">
+				<label>Person to Contact:</label>
+				<input #email1="ngModel" name="email1" type="email" ngModel required email>
+			</div>
+			<div class="field">
+				<label>Person to Contact (confirm):</label>
+				<input name="email2" type="email" ngModel [pattern]="email1.value">
+			</div>
+		</div>
+		<div class="inline field">
+			<label>I agree to be clean and good to the room:</label>
+			<input name="isAgreed" type="checkbox" ngModel required>
+		</div>
+		<div class="fields">
+			<div class="field">
+				<button type="submit" class="ui big positive submit button">Submit</button>
+			</div>
+		</div>
+	</form>
+</div>
