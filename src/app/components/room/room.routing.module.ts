@@ -12,11 +12,13 @@ const routes: Routes = [
 	{
 		path: "rooms/:id",
 		component: RoomComponent,
+		canActivate: [LoginGuardService],
 
 		children: [
 			{
 				path: "form",
-				component: RoomFormComponent
+				component: RoomFormComponent,
+				canDeactivate: [CanDeactivateGuardService]
 			},
 			{
 				path: "list",
