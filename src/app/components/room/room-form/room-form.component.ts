@@ -34,6 +34,10 @@ export default class RoomFormComponent implements OnInit, ICanDeactivate {
 		});
 	}
 
+	private _switchRoom(id:string) {
+		this.roomId = id;
+	}
+
 	public canDeactivate() {
 		if (this._form.pristine || this._form.submitted) return true;
 
@@ -44,9 +48,5 @@ export default class RoomFormComponent implements OnInit, ICanDeactivate {
 		const message = "Room reservation submitted!";
 		console.log(message, reservationValues);
 		alert(message);
-	}
-
-	private _switchRoom(id:string) {
-		this.roomId = id;
 	}
 }
