@@ -19,7 +19,7 @@ export default class LoginComponent {
 
 				return {
 					displayName: user.displayName,
-					pictureURL: user.photoURL
+					photoURL: user.photoURL
 				}
 			})
 			.subscribe(user => {

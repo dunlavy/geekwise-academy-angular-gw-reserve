@@ -1,10 +1,10 @@
 <div>
 	<div *ngIf="loggedInUser">
-		<div>Welcome, {{ loggedInUser.displayName }}</div>
-		<div class="ui divider"></div>
+		<img class="ui tiny right floated image" [src]="loggedInUser.photoURL">
+		<span>Welcome, {{ loggedInUser.displayName }}</span>
 	</div>
 	<div class="ui basic buttons">
-		<button (click)="login()" class="ui green basic button">LOGIN</button>
-		<button (click)="logout()" class="ui orange basic button">LOGOUT</button>
+		<button (click)="login()" [disabled]="loggedInUser" class="ui green basic button">LOGIN</button>
+		<button (click)="logout()" [disabled]="!loggedInUser" class="ui orange basic button">LOGOUT</button>
 	</div>
 </div>
