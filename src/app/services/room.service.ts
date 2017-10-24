@@ -22,8 +22,8 @@ export class RoomService {
 		});
 	}
 
-	getRoomById(id):IRoom {
-		return this._rooms.find(room => room.id === id);
+	getRoomById(id):Observable<IRoom> {
+		return this.roomsObservable.map(rooms => rooms.find(room => room.id === id));
 	}
 
 	writeRoomReservation(id, reservation) {}
