@@ -44,8 +44,8 @@ export default class RoomFormComponent implements OnInit, ICanDeactivate {
 			isAgreed: [false, Validators.requiredTrue],
 			email: ['', [Validators.required, Validators.email]],
 			emailConfirmation: '',
-			startDateTime: [this._getDefaultStartDate(), Validators.required],
-			endDateTime: [this._getDefaultEndDate(), Validators.required],
+			startDateTime: [this._getDefaultStartDate().toTimeString().split(" ")[0], Validators.required],
+			endDateTime: [this._getDefaultEndDate().toTimeString().split(" ")[0], Validators.required],
 			reason: ['', Validators.required]
 		};
 
@@ -76,6 +76,7 @@ export default class RoomFormComponent implements OnInit, ICanDeactivate {
 
 		date.setHours(date.getHours() + 1);
 		date.setMinutes(0);
+		date.setSeconds(0);
 
 		return date;
 	}
