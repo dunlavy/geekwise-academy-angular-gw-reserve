@@ -7,10 +7,25 @@ import { LoginService } from "./../../services/login.service";
 	templateUrl: "./login.component.html"
 })
 export default class LoginComponent {
+	public loggedInUser;
+
 	constructor(
 		private _loginService: LoginService,
 		private _router: Router
-	) { }
+	) {
+		this._loginService.getLoggedInUser()
+			.map(user => {
+				if (!user) return;
+
+				return {
+					displayName: user.displayName,
+					photoURL: user.photoURL
+				}
+			})
+			.subscribe(user => {
+				this.loggedInUser = user;
+			});
+	}
 
 	public login() {
 		this._loginService.login();
@@ -20,9 +35,5 @@ export default class LoginComponent {
 		this._loginService.logout();
 
 		if (this._router.url.substr(0, 6) === "/rooms") this._router.navigateByUrl("/welcome");
-	}
-
-	public get loggedInUser() {
-		return this._loginService.getLoggedInUser();
 	}
 }

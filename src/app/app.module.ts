@@ -5,6 +5,7 @@ import { AppRoutingModule, routedComponents } from "./app.routing.module";
 import { RoomModule } from "./components/room/room.module";
 
 import { LoginService } from "./services/login.service";
+import { RoomService } from "./services/room.service";
 
 import AppComponent from "./app.component";
 import NavigationComponent from "./components/navigation/navigation.component";
@@ -30,7 +31,8 @@ import { environment } from "./../environments/environment";
 		AppComponent
 	],
 	providers: [
-		LoginService
+		LoginService,
+		RoomService
 	],
 	declarations: [
 		AppComponent,
