@@ -38,7 +38,7 @@ export default class NavigationComponent implements OnInit {
 				});
 			})
 			.subscribe(rooms => {
-				this.navigationItems.concat(rooms);
+				this.navigationItems = this.navigationItems.concat(rooms);
 			});
 	}
 }
