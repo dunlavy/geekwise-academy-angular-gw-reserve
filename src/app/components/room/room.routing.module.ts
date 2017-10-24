@@ -6,6 +6,7 @@ import { LoginGuardService } from "./../../services/login-guard.service";
 
 import RoomComponent from "./room.component";
 import RoomFormComponent from "./room-form/room-form.component";
+import RoomReactiveFormComponent from "./room-reactive-form/room-reactive-form.component";
 import RoomListComponent from "./room-list/room-list.component";
 
 const routes: Routes = [
@@ -18,6 +19,11 @@ const routes: Routes = [
 			{
 				path: "form",
 				component: RoomFormComponent,
+				canDeactivate: [CanDeactivateGuardService]
+			},
+			{
+				path: "reactive-form",
+				component: RoomReactiveFormComponent,
 				canDeactivate: [CanDeactivateGuardService]
 			},
 			{
@@ -52,4 +58,4 @@ const routes: Routes = [
 })
 export class RoomRoutingModule { }
 
-export const routedComponents = [RoomComponent, RoomFormComponent, RoomListComponent];
+export const routedComponents = [RoomComponent, RoomFormComponent, RoomReactiveFormComponent, RoomListComponent];
