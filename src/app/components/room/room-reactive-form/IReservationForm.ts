@@ -1,6 +1,10 @@
 import { IReservation } from "./../../../interfaces/IReservation";
 
-export interface IReservationForm extends IReservation {
-	emailConfirmation: string;
-	isAgreed: boolean;
+export interface IReservationForm {
+	email: string | any[],
+	reason: string | any[],
+	startDateTime: string | any[],
+	endDateTime: string | any[],
+	emailConfirmation: string | any[],
+	isAgreed: string | any[]
 }
