@@ -20,11 +20,11 @@
 		<div class="two fields">
 			<div class="field">
 				<label>Start Time:</label>
-				<input name="startTime" type="time" ngModel required>
+				<input name="startTime" type="time" [ngModel]="defaultStartTimeString" required>
 			</div>
 			<div class="field">
 				<label>End Time:</label>
-				<input name="endTime" type="time" ngModel required>
+				<input name="endTime" type="time" [ngModel]="defaultEndTimeString" required>
 			</div>
 		</div>
 		<div class="two fields">
