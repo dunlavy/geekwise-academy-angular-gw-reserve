@@ -1,26 +1,26 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { AngularFireAuth } from "angularfire2/auth";
+import * as firebase from "firebase/app";
 
 @Injectable()
 export class LoginService {
-	private _loggedInUser: Object;
+	private _loggedInUser: Observable<firebase.User>;
 
-	constructor() {
-		console.log("LoginService initialized");
-
-		this._loggedInUser = null;
+	constructor(private _authService: AngularFireAuth) {
+		this._loggedInUser = _authService.authState;
 	}
 
-	public getLoggedInUser(): Object {
-		return this._loggedInUser ? Object.assign({}, this._loggedInUser) : null;
+	public getLoggedInUser(): Observable<firebase.User> {
+		return this._loggedInUser;
 	}
 
-	public login(): void {
-		this._loggedInUser = {
-			name: "Josh R. Dunlavy"
-		};
+	public login(): Promise<any> {
+		return this._authService.auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
+			.catch(error => alert(error.message));
 	}
 
-	public logout(): void {
-		this._loggedInUser = null;
+	public logout(): Promise<any> {
+		return this._authService.auth.signOut();
 	}
 }
