@@ -84,7 +84,7 @@ export default class RoomFormComponent implements OnInit, ICanDeactivate {
 	private _getDefaultEndDate() {
 		const date = this._getDefaultStartDate();
 
-		date.setHours(date.getHours() + 2);
+		date.setHours(date.getHours() + 1);
 
 		return date;
 	}
