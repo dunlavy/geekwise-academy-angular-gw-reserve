@@ -1,9 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Observable } from "rxjs/Observable";
-
 import { INavigationItem } from "./../../interfaces/INavigationItem";
-import { IRoom } from "./../../interfaces/IRoom";
 import { RoomService } from "./../../services/room.service";
 
 @Component({
