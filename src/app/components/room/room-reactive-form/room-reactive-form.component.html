@@ -1,18 +1,18 @@
 <div>
-	<button class="ui orange basic button" routerLink="../reactive-form">USE REACTIVE FORM</button>
+	<button class="ui orange basic button" routerLink="../form">USE TEMPLATE DRIVEN FORM</button>
 
 	<h1 class="ui header">
 		Make Reservation for Room of ID: {{ roomId }}
 	</h1>
 
-	<form #roomForm="ngForm"
+	<form [formGroup]="roomForm"
 	      class="ui large relaxed form"
 	      (ngSubmit)="onSubmit(roomForm.value)"
 	      novalidate>
 		<div class="two fields">
 			<div class="field">
 				<label>Reserve For:</label>
-				<select name="reserveReason" ngModel required>
+				<select formControlName="reason">
 					<option *ngFor="let reason of reasons" [value]="reason">{{ reason }}<option>
 				</select>
 			</div>
@@ -20,26 +20,26 @@
 		<div class="two fields">
 			<div class="field">
 				<label>Start Time:</label>
-				<input name="startTime" type="time" ngModel required>
+				<input type="time" formControlName="startDateTime">
 			</div>
 			<div class="field">
 				<label>End Time:</label>
-				<input name="endTime" type="time" ngModel required>
+				<input type="time" formControlName="endDateTime">
 			</div>
 		</div>
 		<div class="two fields">
 			<div class="field">
 				<label>Person to Contact:</label>
-				<input #email1="ngModel" name="email1" type="email" ngModel required email>
+				<input name="email" type="email" formControlName="email">
 			</div>
 			<div class="field">
 				<label>Person to Contact (confirm):</label>
-				<input name="email2" type="email" ngModel [pattern]="email1.value">
+				<input name="emailConfirmation" type="email" formControlName="emailConfirmation">
 			</div>
 		</div>
 		<div class="inline field">
 			<label>I agree to be clean and good to the room:</label>
-			<input name="isAgreed" type="checkbox" ngModel required>
+			<input type="checkbox" formControlName="isAgreed">
 		</div>
 		<div class="fields">
 			<div class="field">
