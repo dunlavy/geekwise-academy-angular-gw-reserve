@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"**/.hg": true,
+		"**/.git": true,
+		"**/build": true,
+		"**/node_modules": true,
+		"**/.vscode": true,
+		"semantic": true
+	}
+}
