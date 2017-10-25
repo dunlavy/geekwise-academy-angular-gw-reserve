@@ -21,3 +21,7 @@ select.ng-dirty.ng-invalid, input.ng-dirty.ng-invalid {
 select.ng-touched.ng-valid, input.ng-touched.ng-valid {
 	background-color: #e7fae7 !important;
 }
+
+.ui.message>.close.icon {
+	top: auto;
+}
