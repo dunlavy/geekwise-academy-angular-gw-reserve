@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { NgForm } from "@angular/forms";
 
+import { IReservation } from "./../../../interfaces/IReservation";
+
 import { ICanDeactivate } from "./../../../services/deactivate-guard.service";
+import { RoomService } from "./../../../services/room.service";
 
 @Component({
 	selector: "gw-room-form",
@@ -20,7 +23,11 @@ export default class RoomFormComponent implements OnInit, ICanDeactivate {
 	public defaultStartTimeString:string;
 	public defaultEndTimeString:string;
 
-	constructor(private _activatedRoute:ActivatedRoute) { }
+	constructor(
+		private _activatedRoute:ActivatedRoute,
+		private _roomService:RoomService,
+		private _router: Router
+	) { }
 
 	public ngOnInit() {
 		this.reasons = [
@@ -50,10 +57,9 @@ export default class RoomFormComponent implements OnInit, ICanDeactivate {
 		return confirm("You appear to have unsaved changes.  Discard and continue?");
 	}
 
-	public onSubmit(reservationValues) {
-		const message = "Room reservation submitted!";
-		console.log(message, reservationValues);
-		alert(message);
+	public onSubmit(reservationValues:IReservation) {
+		return this._roomService.writeRoomReservation(this.roomId, reservationValues)
+			.then(() => this._router.navigate(["../list"], { relativeTo: this._activatedRoute }));
 	}
 
 	private _getDefaultStartDate() {
