@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-import { IReservation } from "./../../../interfaces/IReservation";
+import { IRoom } from "./../../../interfaces/IRoom";
+
+import { RoomService } from "./../../../services/room.service";
 
 @Component({
 	selector: "gw-room-list",
@@ -9,21 +11,22 @@ import { IReservation } from "./../../../interfaces/IReservation";
 	styleUrls: ["./room-list.component.css"]
 })
 export default class RoomListComponent implements OnInit {
-	public roomId:string;
+	public room:IRoom;
 
-	public reservations:IReservation[];
-
-	constructor(private _activatedRoute:ActivatedRoute) { }
+	constructor(
+		private _activatedRoute: ActivatedRoute,
+		private _roomService: RoomService
+	) { }
 
 	public ngOnInit() {
-		this.reservations = [];
-
-		this._activatedRoute.parent.paramMap.subscribe(param => {
-			this._switchRoom(param.get("id"));
-		});
+		this._activatedRoute.parent.paramMap.subscribe(route => this._switchRoom(route.get("id")));
 	}
 
-	private _switchRoom(id:string) {
-		this.roomId = id;
+	public deleteReservation(id) {
+		this._roomService.deleteRoomReservation(this.room.id, id);
+	}
+
+	private _switchRoom(id: string) {
+		this._roomService.getRoomById(id).subscribe(room => { this.room = room; });
 	}
 }

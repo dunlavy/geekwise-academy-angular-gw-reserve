@@ -1,10 +1,20 @@
 .reservation-row-header {
-	margin-right: 20px;
-	font-weight: bold;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 210px;
 }
 
-.reservation-list {
-	margin-top: 30px;
+.reservation-row-reason {
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 210px;
+}
+
+.reservation-row-date {
+	display: inline-block;
+	overflow: hidden;
 }
 
 .make-reservation-button {
