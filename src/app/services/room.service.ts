@@ -58,7 +58,11 @@ export class RoomService {
 			});
 	}
 
-	writeRoomReservation(id, reservation) {}
+	writeRoomReservation(roomId, reservation) {
+		return this._database.list("rooms/" + roomId + "/reservations").push(reservation);
+	}
 
-	deleteRoomReservation(id, reservation) {}
+	deleteRoomReservation(roomId, reservationId) {
+		return this._database.list("rooms/" + roomId + "/reservations").remove(reservationId);
+	}
 }
