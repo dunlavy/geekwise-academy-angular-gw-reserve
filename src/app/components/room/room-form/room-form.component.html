@@ -12,7 +12,7 @@
 		<div class="two fields">
 			<div class="field">
 				<label>Reserve For:</label>
-				<select name="reserveReason" ngModel required>
+				<select name="reason" ngModel required>
 					<option *ngFor="let reason of reasons" [value]="reason">{{ reason }}<option>
 				</select>
 			</div>
@@ -30,11 +30,11 @@
 		<div class="two fields">
 			<div class="field">
 				<label>Person to Contact:</label>
-				<input #email1="ngModel" name="email1" type="email" ngModel required email>
+				<input #email="ngModel" name="email" type="email" ngModel required email>
 			</div>
 			<div class="field">
 				<label>Person to Contact (confirm):</label>
-				<input name="email2" type="email" ngModel [pattern]="email1.value">
+				<input name="emailConfirmation" type="email" ngModel [pattern]="email.value">
 			</div>
 		</div>
 		<div class="inline field">
