@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="six wide computer only column">
 				<div class="room-content">
-					<img class="ui medium centered image" [src]="'/assets/images/' + room?.picture">
+					<img class="ui medium centered image" [src]="'/assets/images/' + room?.picture" *ngIf="room?.picture">
 				</div>
 			</div>
 			<div class="sixteen wide tablet ten wide computer column">
