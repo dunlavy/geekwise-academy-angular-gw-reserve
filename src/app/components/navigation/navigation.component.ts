@@ -3,6 +3,8 @@ import { Component, OnInit } from "@angular/core";
 import { INavigationItem } from "./../../interfaces/INavigationItem";
 import { RoomService } from "./../../services/room.service";
 
+import "rxjs/add/operator/do";
+
 @Component({
 	selector: "gw-navigation",
 	templateUrl: "./navigation.component.html",
@@ -14,15 +16,18 @@ export default class NavigationComponent implements OnInit {
 	constructor(private _roomService:RoomService) { }
 
 	ngOnInit() {
-		this.navigationItems = [];
-
-		this.navigationItems.push({
-			color: "blue",
-			title: "Welcome",
-			url: "/welcome"
-		});
-
 		this._roomService.roomsObservable
+			.do(rooms => {
+				this.navigationItems = [];
+
+				this.navigationItems.push({
+					color: "blue",
+					title: "Welcome",
+					url: "/welcome"
+				});
+
+				return rooms;
+			})
 			.map(rooms => {
 				return rooms.map(room => {
 					const navigationItem:INavigationItem = {
