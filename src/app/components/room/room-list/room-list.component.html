@@ -1,18 +1,23 @@
 <div>
 	<h1 class="ui header">
-		Room Reservations for ID:  {{ roomId }}
+		Welcome to {{ room?.name }}!
 	</h1>
 
-	<div class="ui segment">
-		<button routerLink="../form" class="ui right floated positive button make-reservation-button">Make One</button>
-		<p>There are {{ reservations?.length || 'no' }} reservation(s) today.</p>
+	<div class="ui inverted active dimmer" *ngIf="!room">
+		<div class="ui big loader"></div>
 	</div>
 
-	<div class="ui segment reservation-list" *ngFor="let reservation of reservations">
-		<p>
+	<div class="ui segment">
+		<button routerLink="../form" class="ui right floated positive button make-reservation-button">Make Reservation</button>
+		<p>There are {{ room?.reservations?.length || 'no' }} reservation(s) today.</p>
+	</div>
+
+	<div class="ui segment reservation-list" *ngFor="let reservation of room?.reservations">
+		<div class="ui message">
+			<i class="close icon" (click)="deleteReservation(reservation.id)"></i>
 			<span class="reservation-row-header">{{ reservation.email }}</span>
-			<span class="reservation-row-reason">{{ reservation.reason }}:</span>
-			<span class="reservation-row-date">{{ reservation.startDateTime }} - {{ reservation.endDateTime }}</span>
-		</p>
+			<span class="reservation-row-reason">{{ reservation.reason }}</span>
+			<span class="reservation-row-date">{{ reservation.startTime }} - {{ reservation.endTime }}</span>
+		</div>
 	</div>
 </div>

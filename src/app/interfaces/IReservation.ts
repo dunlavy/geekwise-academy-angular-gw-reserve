@@ -2,6 +2,8 @@ export interface IReservation {
 	id?: string,
 	email: string,
 	reason: string,
-	startDateTime: Date,
-	endDateTime: Date
+	startTime: string,
+	endTime: string,
+	emailConfirmation: string,
+	isAgreed: string
 }
