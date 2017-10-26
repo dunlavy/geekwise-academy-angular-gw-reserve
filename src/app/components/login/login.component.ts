@@ -4,7 +4,8 @@ import { LoginService } from "./../../services/login.service";
 
 @Component({
 	selector: "gw-login",
-	templateUrl: "./login.component.html"
+	templateUrl: "./login.component.html",
+	styleUrls: ["./login.component.css"]
 })
 export default class LoginComponent {
 	public loggedInUser;
