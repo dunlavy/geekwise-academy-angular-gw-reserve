@@ -4,7 +4,6 @@
 		<a *ngFor="let navItem of navigationItems"
 			[routerLink]="navItem.url"
 			routerLinkActive="active"
-			[routerLinkActiveOptions]="{ exact: true }"
 			class="item">
 			{{ navItem.title }}
 		</a>
