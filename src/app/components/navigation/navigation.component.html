@@ -3,6 +3,7 @@
 
 		<a *ngFor="let navItem of navigationItems"
 			[routerLink]="navItem.url"
+			[ngClass]="navItem.color"
 			routerLinkActive="active"
 			class="item">
 			{{ navItem.title }}
