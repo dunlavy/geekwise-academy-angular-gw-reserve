@@ -1,15 +1,34 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { trigger, state, style, animate, transition } from "@angular/animations";
 
 import { RoomService } from "./../../services/room.service";
+
+import { IRoom } from "./../../interfaces/IRoom";
+
+const animations = [
+	trigger("onLoad", [
+		state("init", style({
+			bottom: '-420px',
+			opacity: 0
+		})),
+		state("complete", style({
+			bottom: '-110px',
+			opacity: .5
+		})),
+		transition("init => complete", animate("220ms ease-out"))
+	])
+];
 
 @Component({
 	selector: "gw-room",
 	templateUrl: "./room.component.html",
-	styleUrls: ["./room.component.css"]
+	styleUrls: ["./room.component.css"],
+	animations
 })
 export default class RoomComponent implements OnInit {
-	public room;
+	public room:IRoom;
+	public state:string;
 
 	constructor(
 		private _activatedRoute:ActivatedRoute,
@@ -17,10 +36,16 @@ export default class RoomComponent implements OnInit {
 	) { }
 
 	public ngOnInit() {
-		this._activatedRoute.paramMap.subscribe(route => this._switchRoom(route.get("id")));
+		this._activatedRoute.paramMap.subscribe(route => {
+			this.state = "init";
+			this._switchRoom(route.get("id"));
+		});
 	}
 
 	private _switchRoom(id:string) {
-		this._roomService.getRoomById(id).subscribe(room => { this.room = room });
+		this._roomService.getRoomById(id).subscribe(room => {
+			this.state = "complete";
+			this.room = room;
+		});
 	}
 }
