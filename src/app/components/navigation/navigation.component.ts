@@ -11,9 +11,9 @@ import "rxjs/add/operator/do";
 	styleUrls: ["./navigation.component.css"]
 })
 export default class NavigationComponent implements OnInit {
-	public navigationItems:INavigationItem[];
+	public navigationItems: INavigationItem[];
 
-	constructor(private _roomService:RoomService) { }
+	constructor(private _roomService: RoomService) { }
 
 	ngOnInit() {
 		this._roomService.roomsObservable
@@ -30,9 +30,9 @@ export default class NavigationComponent implements OnInit {
 			})
 			.map(rooms => {
 				return rooms.map(room => {
-					const navigationItem:INavigationItem = {
+					const navigationItem: INavigationItem = {
 						color: "green",
-						title: room.name,
+						title: room.title,
 						url: "/rooms/" + room.id
 					};
 
