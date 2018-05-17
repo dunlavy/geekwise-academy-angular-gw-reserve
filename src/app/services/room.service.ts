@@ -48,6 +48,8 @@ export class RoomService {
 				for (let reservationKey in room.reservations) {
 					const reservation = room.reservations[reservationKey];
 					reservation.id = reservationKey;
+					reservation.endTime = reservation.endTime.replace("00:00", "00");
+					reservation.startTime = reservation.startTime.replace("00:00", "00");
 					reservations.push(reservation);
 				}
 
