@@ -15,9 +15,15 @@
 	<div class="ui segment reservation-list" *ngFor="let reservation of room?.reservations">
 		<div class="ui message" [@onLoad]="reservation.isTadaTime ? 'complete' : 'init'">
 			<i class="close icon" (click)="deleteReservation(reservation.id)"></i>
-			<span class="reservation-row-header">{{ reservation.email }}</span>
-			<span class="reservation-row-reason">{{ reservation.reason }}</span>
-			<span class="reservation-row-date">{{ reservation.startTime }} - {{ reservation.endTime }}</span>
+			<span class="reservation-row-header">
+				{{ reservation.email }}
+			</span>
+			<span class="reservation-row-reason">
+				{{ reservation.reason }}
+			</span>
+			<span class="reservation-row-date">
+				{{ reservation.startTime }} - {{ reservation.endTime }}
+			</span>
 		</div>
 	</div>
 </div>
