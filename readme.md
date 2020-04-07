@@ -12,7 +12,7 @@
 8. template-driven forms
 9. reactive forms (maybe, if there is time)
 10. Firebase RTDB and Authentication
-11. Animations (maybe, if there is time)
+11. animations (maybe, if there is time)
 
 By the last day of class, students will have learned all the fundamentals to building a web application quickly from scratch.
 
