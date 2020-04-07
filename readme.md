@@ -18,6 +18,9 @@ By the last day of class, students will have learned all the fundamentals to bui
 
 ****A Quick Walk-Thru****
 
+[Click here](https://github.com/dunlavy/geekwise-academy-angular-gw-reserve/blob/master/src/assets/images/animations_preview.mp4?raw=true "MP4 Quick Preview") to see a video of the UI built in class.
+
+Animated GIF:
 ![preview]
 
 
